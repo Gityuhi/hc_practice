@@ -2,71 +2,74 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="reset.css" />
     <title>コーディング模写</title>
   </head>
   <body>
-    <header>
-      <nav>
+    <div class="container">
+      <header class="header">
+        <h2 class="item1">レジュメ</h2>
         <ul>
-          <li class="item1">レジュメ</li>
           <li class="item2">自己紹介</li>
           <li class="item3">プロフィール画像</li>
         </ul>
-      </nav>
-      <img src="contents/main.png" alt="メイン画像" />
-    </header>
-    <main>
-      <div>
-        <div>
-          <h2 class="personal-border">自己紹介</h2>
-          <div class="content-container">
+      </header>
+      <main class="main">
+        <img class="main-img" src="contents/main.png" alt="メイン画像" />
+        <div class="personal-container">
+          <h2 class="personal">自己紹介</h2>
+          <div class="personal-content">
             <div>
-              <h4 class="title-text">鈴木 太郎</h4>
-              <p class="text">
-                鈴木太郎です。鈴木太郎です。鈴木太郎です。鈴木太郎です。鈴木太郎です。<br />鈴木太郎です。鈴木太郎です。鈴木太郎です。鈴木太郎です。鈴木太郎です。<br />鈴木太郎です。鈴木太郎です。鈴木太郎です。鈴木太郎です。鈴木太郎です。
-              </p>
+              <h3 class="personal-title">鈴木 太郎</h3>
+              <p>鈴木太郎です。鈴木太郎です。鈴木太郎です。鈴木太郎です。鈴木太郎です。</p>
+              <p>鈴木太郎です。鈴木太郎です。鈴木太郎です。鈴木太郎です。鈴木太郎です。</p>
+              <p>鈴木太郎です。鈴木太郎です。鈴木太郎です。鈴木太郎です。鈴木太郎です。</p>
             </div>
-            <img class="personal-img" src="contents/personal.png" alt="自己紹介画像" />
+            <img
+              class="personal-img"
+              src="contents/personal.png"
+              alt="自己紹介画像"
+            />
           </div>
         </div>
         <div>
-          <h2 class="profile-border">プロフィール画像</h2>
-          <div class="content-container">
-            <div class="profile-container">
-              <h4 class="title-text">タイトルテキスト</h4>
-              <p class="text">テキストテキストテキスト</p>
+          <h2 class="profile">プロフィール画像</h2>
+          <div class="profile-content">
+            <div>
+              <p class="profile-title">タイトルタイトル</p>
+              <p class="profile-text">テキストテキストテキスト</p>
               <img
                 class="profile-img"
                 src="contents/profile.png"
-                alt="プロフィール画像"
+                alt="プロフィール画像1"
               />
             </div>
-            <div class="profile-container">
-              <h4 class="title-text">タイトルテキスト</h4>
-              <p class="text">テキストテキストテキスト</p>
+            <div>
+              <p class="profile-title">タイトルタイトル</p>
+              <p class="profile-text">テキストテキストテキスト</p>
               <img
                 class="profile-img"
                 src="contents/profile.png"
-                alt="プロフィール画像"
+                alt="プロフィール画像2"
               />
             </div>
-            <div class="profile-container">
-              <h4 class="title-text">タイトルテキスト</h4>
-              <p class="text">テキストテキストテキスト</p>
+            <div>
+              <p class="profile-title">タイトルタイトル</p>
+              <p class="profile-text">テキストテキストテキスト</p>
               <img
                 class="profile-img"
                 src="contents/profile.png"
-                alt="プロフィール画像"
+                alt="プロフィール画像3"
               />
             </div>
           </div>
         </div>
-      </div>
-    </main>
-    <footer>
-      <p class="footer-text">© 2025 鈴木太郎</p>
-    </footer>
+      </main>
+      <footer class="footer">
+        <p class="footer-text">© 2025 鈴木太郎</p>
+      </footer>
+    </div>
   </body>
 </html>
