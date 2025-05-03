@@ -1,27 +1,53 @@
+# 配列を用意する
+# 配列をシャッフルし、3:3/2:4に分割するメソッドを定義する
+# 引数としてランダムに2/3が渡されるようにする
+
+
 group = ["A", "B", "C", "D", "E", "F"]
+
+def random(group)
+  num = [2, 3].sample
+  group.shuffle!
+  p group.shift(num).sort
+  group.sort
+end
+
+p random(group)
+
+# p [2, 3].sample
 
 # def random(group)
 #   group.shuffle!
-#   p group.shift(2).sort
-#   p group.sort
+#   num = [2, 3].sample
+#   def team(num, group)
+#     p group.shift(num).sort
+#     group.sort
+#   end
 # end
 
-# random(group)
+# p random(group)
+ 
+#   p group.shift(num.sample).sort
+#   group.sort
+# end
 
-num = [0, 1]
-num.shuffle!
-num.shift(1)
+# p random(group)
 
-if num == [1]
-  group.shuffle!
-  p group.shift(2).sort
-  p group.sort
-else
-  group.shuffle!
-  p group.shift(3).sort
-  p group.sort
-end
 
+# group.shuffle!
+ 
+# p group.shift(num.sample).sort
+# group.sort
+
+# if num == [1]
+#   group.shuffle!
+#   p group.shift(2).sort
+#   p group.sort
+# else
+#   group.shuffle!
+#   p group.shift(3).sort
+#   p group.sort
+# end
 
 
 # 考えられるのは
