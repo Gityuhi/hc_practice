@@ -1,3 +1,4 @@
+##gitの修正のために変更を加えた←このコメント
 pars = gets.chomp.split(",").map(&:to_i)
 strokes = gets.chomp.split(",").map(&:to_i)
 
