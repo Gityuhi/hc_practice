@@ -1,0 +1,115 @@
+@startuml yonde
+' hide the spot
+hide circle
+
+' avoid problems with angled crows feet
+skinparam linetype ortho
+
+entity "users" as users {
+  user_id : INT <<PK>>
+  --
+  email : VARCHAR(255) <<UNIQUE>> <<NOT NULL>>
+  username : VARCHAR(50) <<UNIQUE>> <<NOT NULL>>
+  phone_number : VARCHAR(20) <<UNIQUE>> 
+  display_name : VARCHAR(50) 
+  self_introduction : TEXT 
+  address : VARCHAR(100) 
+  website : VARCHAR(255) 
+  date_of_birth : DATE <<NOT NULL>>
+  profile_image : VARCHAR(255)
+  avatar_image : VARCHAR(255)
+  created_at : DATETIME <<NOT NULL>>
+  updated_at : DATETIME <<NOT NULL>>
+}
+
+
+entity "tweets" as tweets {
+  id
+  --
+  content : VARCHAR(140) <<NOT NULL>>
+  user_id : INT <<FK>>
+  created_at : DATETIME <<NOT NULL>>
+  updated_at : DATETIME <<NOT NULL>>
+  deleted_at : DATETIME <<NULL>>
+}
+
+entity "likes" as likes {
+  user_id : INT <<FK>>
+  tweet_id : INT <<FK>>
+  --
+  created_at : DATETIME <<NOT NULL>>
+  updated_at : DATETIME <<NOT NULL>>
+}
+
+entity "retweets" as retweets {
+  user_id : INT <<FK>>
+  tweet_id : INT <<FK>>
+  --
+  created_at : DATETIME <<NOT NULL>>
+  updated_at : DATETIME <<NOT NULL>>
+}
+
+entity "direct_meesages" as direct_meesages {
+  id
+  --
+  sender_id : INT <<FK>>
+  recipient_id : INT <<FK>>
+  content : TEXT <<NOT NULL>>
+  created_at : DATETIME <<NOT NULL>>
+  updated_at : DATETIME <<NOT NULL>>
+}
+
+entity "follows" as follows {
+  follower_id : INT <<FK>>
+  followed_id : INT <<FK>>
+  --
+  created_at : DATETIME <<NOT NULL>>
+  updated_at : DATETIME <<NOT NULL>>
+}
+
+entity "bookmarks" as bookmarks {
+  user_id : INT <<FK>>
+  tweet_id : INT <<FK>>
+  --
+  created_at : DATETIME <<NOT NULL>>
+  updated_at : DATETIME <<NOT NULL>>
+}
+
+entity "notifications" as notifications {
+  id
+  --
+  recipient_id : INT <<FK>>
+  actor_id : INT <<FK>>
+  action_type : ENUM('like', 'follow')
+  tweet_id : INT <<FK>>
+  created_at : DATETIME <<NOT NULL>>
+  updated_at : DATETIME <<NOT NULL>>
+}
+
+' --- 関係性の定義 ---
+
+' usersとtweets
+users ||--o{ tweets
+
+' usersとtweetsの多対多関係
+users ||--o{ likes
+tweets ||--o{ likes
+
+users ||--o{ retweets
+tweets ||--o{ retweets
+
+users ||--o{ bookmarks
+tweets ||--o{ bookmarks
+
+' users同士の多対多関係
+users ||--o{ follows : "follower"
+users ||--o{ follows : "followed"
+
+users ||--o{ dms : "sender"
+users ||--o{ dms : "recipient"
+
+' 通知の関連
+users ||--o{ notifications : "recipient"
+users ||--o{ notifications : "actor"
+tweets ||--o{ notifications
+@enduml
