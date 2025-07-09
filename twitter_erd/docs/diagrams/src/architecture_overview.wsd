@@ -49,7 +49,7 @@ entity "retweets" as retweets {
   updated_at : DATETIME <<NOT NULL>>
 }
 
-entity "dms" as dms {
+entity "direct_meesages" as direct_meesages {
   id
   --
   sender_id : INT <<FK>>
